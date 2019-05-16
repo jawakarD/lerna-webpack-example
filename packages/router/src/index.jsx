@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // We set a route prefix so this will work when we deploy to github pages.
 // If you fork this repo, update this value and in the webpack / package.json
 // to be able to deploy to your repo as well.
-const routePrefix = '/lerna-webpack-example';
+// const routePrefix = location.host;
 
 // Create an async wrapper around our async-leaf component.
 // We only want to load this component on the '/async' path
@@ -27,15 +27,15 @@ const BasicRouting = () => (
   <Suspense fallback={LoadingState}>
     <Router>
       <div>
-        <a href={`${routePrefix}/async`}>Hard redirect to /async</a>
+        <a href="/async/">Hard redirect to /async</a>
         <br />
-        <a href={`${routePrefix}/`}>Hard redirect to /</a>
+        <a href="/">Hard redirect to /</a>
         <br />
         <br />
 
         {/* We can still use external routing (e.g. page redirects) to load our components. */}
-        <Route exact path={routePrefix} component={Leaf} />
-        <Route path={`${routePrefix}/async`} component={LoadableAsyncLeaf} />
+        <Route exact path="/" component={Leaf} />
+        <Route exac path="/async" component={LoadableAsyncLeaf} />
       </div>
     </Router>
   </Suspense>

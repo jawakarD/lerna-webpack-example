@@ -8,7 +8,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: '/lerna-webpack-example/',
+    publicPath: '/',
   },
   resolve: {
     modules: ['node_modules'],
@@ -19,8 +19,7 @@ module.exports = {
     noInfo: true,
     port: 3000,
     open: true,
-    publicPath: '/lerna-webpack-example',
-    openPage: 'lerna-webpack-example',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebPackPlugin({

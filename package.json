@@ -1,6 +1,6 @@
 {
   "private": true,
-  "homepage": "https://dmk255.github.io/lerna-webpack-example/",
+  "homepage": "http://localhost:300",
   "workspaces": [
     "packages/*"
   ],
@@ -46,9 +46,8 @@
     "prebuild": "git clean -fdx packages -e packages/*/node_modules",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --cache --ignore-path .gitignore ./packages/*/src/**.jsx",
-    "lint:ts": "yarn tslint -c tslint.json -p tsconfig-lint.json --fix",
     "test": "jest",
-    "build": "yarn tsc -b && lerna run build:webpack",
+    "build": "lerna run build:webpack",
     "dev": "lerna run dev --stream",
     "deploy": "gh-pages -d packages/router/dist"
   }
