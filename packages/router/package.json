@@ -1,7 +1,7 @@
 {
   "name": "@dkez/router",
   "version": "0.0.3",
-  "main": "src/index.tsx",
+  "main": "src/index.jsx",
   "license": "MIT",
   "private": true,
   "publishConfig": {

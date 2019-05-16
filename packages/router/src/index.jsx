@@ -11,18 +11,16 @@ const routePrefix = '/lerna-webpack-example';
 // Create an async wrapper around our async-leaf component.
 // We only want to load this component on the '/async' path
 /* tslint:disable prettier */
-const LoadableAsyncLeaf = React.lazy(() => {
-  // We are intentionally ignoring here as this leaf is in JS not TS. This is useful
-  // if you want to progressively update your packages over to TS.
-  // @ts-ignore
-  return import(/* webpackChunkName: 'async-leaf' */ '@dkez/async-leaf')
-});
+const LoadableAsyncLeaf = React.lazy(() =>
+  import(/* webpackChunkName: 'async-leaf' */ '@dkez/async-leaf'));
+// We are intentionally ignoring here as this leaf is in JS not TS. This is useful
+// if you want to progressively update your packages over to TS.
+// @ts-ignore
+
 /* tslint:enable */
 
 const LoadingState = (
-  <div style={{ background: 'aqua', width: '100px', height: '100px' }}>
-    Loading...
-  </div>
+  <div style={{ background: 'aqua', width: '100px', height: '100px' }}>Loading...</div>
 );
 
 const BasicRouting = () => (
@@ -36,7 +34,7 @@ const BasicRouting = () => (
         <br />
 
         {/* We can still use external routing (e.g. page redirects) to load our components. */}
-        <Route exact={true} path={routePrefix} component={Leaf} />
+        <Route exact path={routePrefix} component={Leaf} />
         <Route path={`${routePrefix}/async`} component={LoadableAsyncLeaf} />
       </div>
     </Router>
